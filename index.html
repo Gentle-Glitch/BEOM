@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휘국 輝國 - 세계관</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Noto Serif KR & Hahmlet (동양적 느낌의 고급 명조체) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300;400;600;700&family=Noto+Serif+KR:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Serif KR', 'Hahmlet', serif;
+            background-color: #080709;
+            color: #d1c7bd;
+            background-image: radial-gradient(circle at 50% 20%, #1a0b0e 0%, #080709 70%);
+        }
+
+        /* 전통 오리엔탈 테두리 프레임 스타일 */
+        .oriental-frame {
+            position: relative;
+            background: rgba(15, 12, 16, 0.85);
+            border: 1px solid #7a221e;
+            box-shadow: 0 0 25px rgba(122, 34, 30, 0.25), inset 0 0 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .oriental-frame::before {
+            content: '';
+            position: absolute;
+            top: -5px; left: -5px; right: -5px; bottom: -5px;
+            border: 1px solid rgba(197, 155, 93, 0.3);
+            pointer-events: none;
+        }
+
+        /* 모서리 장식 요소 */
+        .corner-decoration {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            border-color: #c59b5d;
+            pointer-events: none;
+        }
+        .corner-tl { top: 4px; left: 4px; border-top: 2px solid; border-left: 2px solid; }
+        .corner-tr { top: 4px; right: 4px; border-top: 2px solid; border-right: 2px solid; }
+        .corner-bl { bottom: 4px; left: 4px; border-bottom: 2px solid; border-left: 2px solid; }
+        .corner-br { bottom: 4px; right: 4px; border-bottom: 2px solid; border-right: 2px solid; }
+
+        /* 글로우 효과 텍스트 */
+        .text-glow-red {
+            text-shadow: 0 0 12px rgba(186, 45, 39, 0.6);
+        }
+        .text-glow-gold {
+            text-shadow: 0 0 10px rgba(197, 155, 93, 0.4);
+        }
+
+        /* 구분선 스타일 */
+        .oriental-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #7a221e, #c59b5d, #7a221e, transparent);
+        }
+    </style>
+</head>
+<body class="min-h-screen py-10 px-4 flex flex-col items-center">
+
+    <!-- 메인 컨테이너 -->
+    <main class="w-full max-w-2xl flex flex-col items-center space-y-12">
+        
+        <!-- 1. 첫 번째 이미지 섹션 -->
+        <section class="w-full flex flex-col items-center oriental-frame p-2 sm:p-3 rounded-sm">
+            <div class="corner-decoration corner-tl"></div>
+            <div class="corner-decoration corner-tr"></div>
+            <div class="corner-decoration corner-bl"></div>
+            <div class="corner-decoration corner-br"></div>
+            
+            <div class="w-full overflow-hidden border border-[#3d1817]">
+                <img 
+                    src="범휘 OZ.jpg" 
+                    alt="첫 번째 이미지 (범휘 OZ)" 
+                    class="w-full h-auto object-cover block filter brightness-90 contrast-105 hover:brightness-100 transition-all duration-500"
+                    onerror="this.onerror=null; this.src='https://placehold.co/600x1200/120607/c59b5d?text=Image+1+(범휘+OZ.jpg)';"
+                />
+            </div>
+        </section>
+
+        <!-- 이미지 간의 여백 및 전통 무늬 구분선 -->
+        <div class="w-full flex items-center justify-center my-4 opacity-80">
+            <div class="oriental-divider w-full"></div>
+            <span class="px-3 text-[#c59b5d] text-sm tracking-widest">❖</span>
+            <div class="oriental-divider w-full"></div>
+        </div>
+
+        <!-- 2. 두 번째 이미지 섹션 -->
+        <section class="w-full flex flex-col items-center oriental-frame p-2 sm:p-3 rounded-sm">
+            <div class="corner-decoration corner-tl"></div>
+            <div class="corner-decoration corner-tr"></div>
+            <div class="corner-decoration corner-bl"></div>
+            <div class="corner-decoration corner-br"></div>
+
+            <div class="w-full overflow-hidden border border-[#3d1817]">
+                <img 
+                    src="best quality, year2024, year2025, year2026, 0.5__artist_wanke__, 0.7__artist_msa s-3148556907.jpg" 
+                    alt="두 번째 이미지 (휘국 일러스트)" 
+                    class="w-full h-auto object-cover block filter brightness-95 contrast-105 hover:brightness-100 transition-all duration-500"
+                    onerror="this.onerror=null; this.src='https://placehold.co/600x900/120607/c59b5d?text=Image+2+(휘국+Poster)';"
+                />
+            </div>
+        </section>
+
+        <!-- 3. 내용 설명 섹션 -->
+        <section class="w-full oriental-frame p-6 sm:p-10 rounded-sm space-y-10">
+            <div class="corner-decoration corner-tl"></div>
+            <div class="corner-decoration corner-tr"></div>
+            <div class="corner-decoration corner-bl"></div>
+            <div class="corner-decoration corner-br"></div>
+
+            <!-- 첫 번째 카테고리: 휘국 -->
+            <article class="space-y-4">
+                <header class="border-b border-[#4a1b19] pb-3 flex items-baseline space-x-3">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-[#e6b36a] text-glow-gold tracking-wider">
+                        휘국
+                    </h1>
+                    <span class="text-xl sm:text-2xl text-[#a3322c] text-glow-red font-semibold">
+                        輝國
+                    </span>
+                </header>
+                
+                <div class="text-sm sm:text-base leading-relaxed text-[#c2b6a8] space-y-3 font-light">
+                    <p class="text-[#e27d75]">
+                        500년 전 '범'에 의해 건국된 나라.
+                    </p>
+                    <p>
+                        백성들은 왕실과 사대부가 순수한 예법으로 세상을 다스린다고 굳게 믿으며, 왕실을 천신의 후예로 받든다. 백성들은 영물의 존재를 알지 못한다. 성군인 왕의 후궁들이 늘 알 수 없는 이유로 사라진다는 소문에 안타까워할 뿐이다.
+                    </p>
+                    <p class="pt-2 text-[#d4ad75] border-t border-[#261516]/60">
+                        조정의 요직은 인간의 모습으로 변할 수 있는 고위 영물 가문이 대대로 독점한다.
+                    </p>
+                </div>
+            </article>
+
+            <!-- 중앙 장식선 -->
+            <div class="oriental-divider w-3/4 mx-auto opacity-50"></div>
+
+            <!-- 두 번째 카테고리: 영물 -->
+            <article class="space-y-4">
+                <header class="border-b border-[#4a1b19] pb-3 flex items-baseline space-x-3">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-[#e6b36a] text-glow-gold tracking-wider">
+                        영물
+                    </h2>
+                    <span class="text-xl sm:text-2xl text-[#a3322c] text-glow-red font-semibold">
+                        靈物
+                    </span>
+                </header>
+
+                <div class="text-sm sm:text-base leading-relaxed text-[#c2b6a8] space-y-3 font-light">
+                    <p class="text-[#e27d75]">
+                        무수히 오랜 시간을 살아가는 신령스러운 동물을 칭한다.
+                    </p>
+                    <p>
+                        이들이 어떻게 인간의 모습으로 둔갑해 살아가는지는 알려지지 않았다.
+                    </p>
+                </div>
+            </article>
+        </section>
+
+        <!-- 푸터 -->
+        <footer class="text-xs text-[#6e5d53] text-center pt-4 tracking-widest uppercase">
+            &copy; 휘국 輝國 All Rights Reserved.
+        </footer>
+
+    </main>
+
+</body>
+</html>
