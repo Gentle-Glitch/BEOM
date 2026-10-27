@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>휘국 輝國 - 세계관</title>
+    <title>휘국 輝國 - 세계관 기록</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Noto Serif KR & Hahmlet (동양적 느낌의 고급 명조체) -->
@@ -17,6 +17,7 @@
             background-color: #080709;
             color: #d1c7bd;
             background-image: radial-gradient(circle at 50% 20%, #1a0b0e 0%, #080709 70%);
+            overflow-x: hidden;
         }
 
         /* 전통 오리엔탈 테두리 프레임 스타일 */
@@ -50,10 +51,10 @@
 
         /* 글로우 효과 텍스트 */
         .text-glow-red {
-            text-shadow: 0 0 12px rgba(186, 45, 39, 0.6);
+            text-shadow: 0 0 12px rgba(186, 45, 39, 0.7);
         }
         .text-glow-gold {
-            text-shadow: 0 0 10px rgba(197, 155, 93, 0.4);
+            text-shadow: 0 0 10px rgba(197, 155, 93, 0.5);
         }
 
         /* 구분선 스타일 */
@@ -61,14 +62,57 @@
             height: 1px;
             background: linear-gradient(90deg, transparent, #7a221e, #c59b5d, #7a221e, transparent);
         }
+
+        /* 펄스 애니메이션 (클릭 안내문구) */
+        @keyframes subtlePulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+        }
+        .animate-subtle-pulse {
+            animation: subtlePulse 2.5s infinite ease-in-out;
+        }
+
+        /* 커버 페이드아웃 효과 */
+        .cover-fade-out {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
     </style>
 </head>
-<body class="min-h-screen py-10 px-4 flex flex-col items-center">
+<body class="min-h-screen py-10 px-4 flex flex-col items-center justify-start">
 
-    <!-- 메인 컨테이너 -->
-    <main class="w-full max-w-2xl flex flex-col items-center space-y-12">
+    <!-- 0. 표지 커버 오버레이 (클릭 시 펼쳐짐) -->
+    <div id="coverOverlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#070608] cursor-pointer p-4 transition-all duration-1000">
+        <div class="w-full max-w-md oriental-frame p-2 sm:p-3 rounded-sm relative shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+            <div class="corner-decoration corner-tl"></div>
+            <div class="corner-decoration corner-tr"></div>
+            <div class="corner-decoration corner-bl"></div>
+            <div class="corner-decoration corner-br"></div>
+            
+            <div class="w-full overflow-hidden border border-[#521816]">
+                <!-- 호귀전 (범) 이미지 -->
+                <img 
+                    src="best quality, year2024, year2025, year2026, 0.5__artist_wanke__, 0.7__artist_msa s-3859753842.png" 
+                    alt="표지 - 호귀전 虎鬼傳" 
+                    class="w-full h-auto object-cover block filter brightness-90 contrast-110"
+                    onerror="this.onerror=null; this.src='https://placehold.co/600x900/120607/c59b5d?text=Cover+Image+(호귀전)';"
+                />
+            </div>
+
+            <!-- 클릭 안내 문구 -->
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-5/6 text-center py-2.5 px-4 bg-black/85 border border-[#c59b5d]/50 rounded shadow-xl backdrop-blur-sm animate-subtle-pulse">
+                <p class="text-xs sm:text-sm text-[#e6b36a] text-glow-gold tracking-widest font-medium">
+                    ❖ 클릭하여 휘국(輝國)의 기록 펼치기 ❖
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 본문 컨테이너 (초기엔 숨겨져 있다가 커버 터치 후 등장) -->
+    <main id="mainContent" class="w-full max-w-2xl flex flex-col items-center space-y-12 opacity-0 transition-opacity duration-1000">
         
-        <!-- 1. 첫 번째 이미지 섹션 -->
+        <!-- 1. 첫 번째 이미지 섹션 (웹툰 컷 형태 이미지) -->
         <section class="w-full flex flex-col items-center oriental-frame p-2 sm:p-3 rounded-sm">
             <div class="corner-decoration corner-tl"></div>
             <div class="corner-decoration corner-tr"></div>
@@ -92,7 +136,7 @@
             <div class="oriental-divider w-full"></div>
         </div>
 
-        <!-- 2. 두 번째 이미지 섹션 -->
+        <!-- 2. 두 번째 이미지 섹션 (휘국 일러스트) -->
         <section class="w-full flex flex-col items-center oriental-frame p-2 sm:p-3 rounded-sm">
             <div class="corner-decoration corner-tl"></div>
             <div class="corner-decoration corner-tr"></div>
@@ -101,7 +145,7 @@
 
             <div class="w-full overflow-hidden border border-[#3d1817]">
                 <img 
-                    src="best quality, year2024, year2025, year2026, 0.5__artist_wanke__, 0.7__artist_msa s-3148556907.png" 
+                    src="best quality, year2024, year2025, year2026, 0.5__artist_wanke__, 0.7__artist_msa s-3148556907.jpg" 
                     alt="두 번째 이미지 (휘국 일러스트)" 
                     class="w-full h-auto object-cover block filter brightness-95 contrast-105 hover:brightness-100 transition-all duration-500"
                     onerror="this.onerror=null; this.src='https://placehold.co/600x900/120607/c59b5d?text=Image+2+(휘국+Poster)';"
@@ -166,11 +210,32 @@
         </section>
 
         <!-- 푸터 -->
-        <footer class="text-xs text-[#6e5d53] text-center pt-4 tracking-widest uppercase">
+        <footer class="text-xs text-[#6e5d53] text-center pt-4 pb-8 tracking-widest uppercase">
             &copy; 휘국 輝國 All Rights Reserved.
         </footer>
 
     </main>
 
+    <!-- 인터랙션 자바스크립트 -->
+    <script>
+        const coverOverlay = document.getElementById('coverOverlay');
+        const mainContent = document.getElementById('mainContent');
+
+        // 커버 클릭 시 실행되는 페이드아웃 및 본문 전환 이벤트
+        coverOverlay.addEventListener('click', () => {
+            coverOverlay.classList.add('cover-fade-out');
+            
+            // 본문 페이드인 효과
+            setTimeout(() => {
+                mainContent.classList.remove('opacity-0');
+                mainContent.classList.add('opacity-100');
+            }, 300);
+
+            // 전환 완료 후 오버레이 요소를 화면에서 완전히 없앰
+            setTimeout(() => {
+                coverOverlay.style.display = 'none';
+            }, 1200);
+        });
+    </script>
 </body>
 </html>
